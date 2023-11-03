@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Teste de Endpoint</title>
+  </head>
+  <body>
+    <h1>Teste de Endpoint</h1>
+    <button id="fetch-data">Buscar Mensagem</button>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('fetch-data').addEventListener('click', async () => {
+            try{
+                const response = await fetch('http://localhost:3060/api/curso')
+                const data = await response.json()
+                document.getElementById('message').textContent = data.message
+            }catch(error) {
+                alert('Erro ao recuperar mensagem.')
+            }
+            
+        })
+    </script>
+  </body>
+</html>
